@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ARA Systems x Rafina — Proposta Comercial</title>
+<meta name="description" content="Proposta comercial da ARA Systems para a Rafina: site, CRM KoruVision, social media, audiovisual, tráfego pago e treinamento.">
+<meta name="theme-color" content="#08060a">
+<link rel="icon" href="imagens/icone.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="imagens/icone-180.png">
+<meta name="apple-mobile-web-app-title" content="ARA x Rafina">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08060a;
+  --ink:#0d0a0e;
+  --ink-2:#141017;
+  --gold:#c9a227;
+  --gold-soft:#e5c87a;
+  --gold-dim:rgba(201,162,39,.28);
+  --nude:#e8d5c4;
+  --text:#f6f0e9;
+  --muted:#a89e97;
+  --line:rgba(232,213,196,.14);
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:#000;overflow:hidden;font-family:var(--sans);color:var(--text);-webkit-font-smoothing:antialiased}
+
+.stage{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50% 0%,#171018 0%,#000 70%)}
+.deck{position:relative;width:1280px;height:720px;transform-origin:center center;flex:none}
+
+.slide{position:absolute;inset:0;display:none;background:var(--ink);overflow:hidden;border-radius:2px}
+.slide.on{display:block;animation:in .5s cubic-bezier(.22,.61,.36,1)}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.pad{position:absolute;inset:0;padding:72px 88px;display:flex;flex-direction:column}
+.fit{display:flex;flex-direction:column;flex:1;min-height:0;transform-origin:top left}
+.pad.decl>.fit{justify-content:center}
+
+.grain{position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(rgba(255,255,255,.035) 1px,transparent 1px);background-size:3px 3px}
+.glow{position:absolute;width:760px;height:760px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(201,162,39,.16) 0%,transparent 62%);filter:blur(10px)}
+.glow.tl{top:-380px;left:-260px}
+.glow.br{bottom:-420px;right:-300px}
+
+.kicker{font-size:13px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:26px;display:flex;align-items:center;gap:14px}
+.kicker::after{content:'';height:1px;width:56px;background:linear-gradient(90deg,var(--gold),transparent)}
+
+h1{font-family:var(--serif);font-weight:300;font-size:74px;line-height:1.06;letter-spacing:-.015em}
+h2{font-family:var(--serif);font-weight:300;font-size:54px;line-height:1.12;letter-spacing:-.01em;margin-bottom:14px}
+h3{font-family:var(--serif);font-weight:400;font-size:32px;line-height:1.2}
+.sub{font-size:19px;line-height:1.62;color:var(--muted);font-weight:300;max-width:860px;margin-bottom:32px}
+em.g{font-style:normal;color:var(--gold-soft)}
+strong{font-weight:600;color:#fff}
+
+.rule{height:1px;background:linear-gradient(90deg,var(--gold),var(--gold-dim) 30%,transparent);margin:0 0 30px}
+
+/* ---------- capa ---------- */
+.capa{position:absolute;inset:0}
+.capa .bg{position:absolute;inset:0;background-size:cover;background-position:center right}
+.capa .veil{position:absolute;inset:0;background:linear-gradient(100deg,rgba(8,6,10,.97) 0%,rgba(8,6,10,.9) 38%,rgba(8,6,10,.35) 72%,rgba(8,6,10,.55) 100%)}
+.capa .in{position:absolute;inset:0;padding:0 88px;display:flex;flex-direction:column;justify-content:center;max-width:790px}
+.capa h1{font-size:82px;margin:10px 0 26px}
+.capa .marca{font-size:15px;letter-spacing:.42em;text-transform:uppercase;color:var(--nude);font-weight:400}
+.capa .meta{margin-top:42px;padding-top:26px;border-top:1px solid var(--line);display:flex;gap:34px;font-size:13.5px;color:var(--muted);letter-spacing:.06em}
+.capa .meta b{display:block;color:var(--gold-soft);font-weight:500;font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:6px}
+
+/* ---------- divisor de secao ---------- */
+.secao{position:absolute;inset:0}
+.secao .bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.secao .veil{position:absolute;inset:0;background:linear-gradient(85deg,rgba(8,6,10,.96) 12%,rgba(8,6,10,.72) 52%,rgba(8,6,10,.5) 100%)}
+.secao .in{position:absolute;inset:0;padding:0 88px;display:flex;flex-direction:column;justify-content:center}
+.secao .num{font-family:var(--serif);font-size:150px;line-height:.8;color:transparent;-webkit-text-stroke:1px var(--gold-dim);margin-bottom:22px}
+.secao h1{font-size:78px;max-width:820px}
+.secao .sub{margin-top:22px;font-size:21px;max-width:620px;color:var(--nude);opacity:.82}
+
+/* ---------- declaracao ---------- */
+.bgfoto{position:absolute;inset:0;background-size:cover;background-position:center right}
+.bgveil{position:absolute;inset:0;background:linear-gradient(95deg,rgba(13,10,14,.98) 34%,rgba(13,10,14,.82) 62%,rgba(13,10,14,.5) 100%)}
+.decl{justify-content:center}
+.decl.comfoto .frase,.decl.comfoto .nota,.decl.comfoto ul{max-width:730px}
+.decl .frase{font-family:var(--serif);font-weight:300;font-size:52px;line-height:1.24;max-width:1000px;letter-spacing:-.01em}
+.decl .frase p{margin-bottom:22px}
+.decl .frase p:last-child{margin-bottom:0}
+.decl .nota{margin-top:44px;padding-left:26px;border-left:2px solid var(--gold);font-size:19px;line-height:1.6;color:var(--nude);max-width:760px;font-weight:300}
+.decl ul{list-style:none;margin:30px 0 0}
+.decl ul li{font-family:var(--sans);font-size:19px;font-weight:300;line-height:1.5;color:var(--muted);padding:11px 0 11px 30px;position:relative;border-bottom:1px solid rgba(232,213,196,.07)}
+.decl ul li::before{content:'';position:absolute;left:0;top:21px;width:12px;height:1px;background:var(--gold)}
+
+/* ---------- lista ---------- */
+.itens{list-style:none;display:flex;flex-direction:column;gap:2px;flex:1}
+.itens li{padding:15px 0;border-top:1px solid rgba(232,213,196,.09);display:flex;gap:22px;align-items:flex-start}
+.itens li:last-child{border-bottom:1px solid rgba(232,213,196,.09)}
+.itens .dot{flex:none;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-top:11px;box-shadow:0 0 0 4px rgba(201,162,39,.12)}
+.itens .txt{font-size:18.5px;line-height:1.52;font-weight:300;color:var(--nude)}
+.itens .txt b{color:#fff;font-weight:600}
+.itens.compact .txt{font-size:17px;line-height:1.45}
+.itens.compact li{padding:11px 0}
+.cols2{columns:2;column-gap:56px}
+.cols2 li{break-inside:avoid}
+
+/* ---------- duas colunas ---------- */
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:34px;flex:1;align-content:start}
+.painel{border:1px solid var(--line);border-radius:4px;padding:30px 32px;background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,.008))}
+.painel.neg{border-color:rgba(180,120,120,.22)}
+.painel.pos{border-color:var(--gold-dim);background:linear-gradient(160deg,rgba(201,162,39,.09),rgba(201,162,39,.015))}
+.painel h4{font-family:var(--serif);font-size:27px;font-weight:400;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+.painel.neg h4{color:#d9a9a2}
+.painel.pos h4{color:var(--gold-soft)}
+.painel ul{list-style:none}
+.painel li{font-size:16px;line-height:1.5;font-weight:300;color:var(--nude);padding:8px 0 8px 20px;position:relative}
+.painel li::before{content:'';position:absolute;left:0;top:15px;width:8px;height:1px;background:var(--gold-dim)}
+.painel.pos li::before{background:var(--gold)}
+.painel li b{color:#fff;font-weight:600}
+
+/* ---------- cenario antes/depois ---------- */
+.cen{display:grid;grid-template-columns:1fr 1fr;gap:30px;flex:1;align-content:center}
+.cen .box{border-radius:4px;padding:32px 34px;border:1px solid var(--line);background:rgba(255,255,255,.02);display:flex;flex-direction:column}
+.cen .box.hi{border-color:var(--gold-dim);background:linear-gradient(165deg,rgba(201,162,39,.1),rgba(201,162,39,.02))}
+.cen .tag{font-size:11.5px;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);margin-bottom:16px}
+.cen .box.hi .tag{color:var(--gold)}
+.cen .fala{font-family:var(--serif);font-size:27px;line-height:1.34;color:var(--nude);margin-bottom:20px}
+.cen .box.hi .fala{color:#fff}
+.cen ul{list-style:none;margin-top:auto}
+.cen li{font-size:16px;line-height:1.5;font-weight:300;color:var(--muted);padding:7px 0 7px 19px;position:relative}
+.cen li::before{content:'';position:absolute;left:0;top:14px;width:8px;height:1px;background:var(--gold-dim)}
+.cen .box.hi li{color:var(--nude)}
+.cen .selo{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);font-size:15px;color:var(--gold-soft);letter-spacing:.04em}
+
+/* ---------- comparativo ---------- */
+.tab{width:100%;border-collapse:collapse;font-weight:300}
+.tab th{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);font-weight:500;text-align:left;padding:0 22px 14px;border-bottom:1px solid var(--line)}
+.tab th.b{color:var(--gold)}
+.tab td{font-size:16.5px;line-height:1.4;padding:13px 22px;border-bottom:1px solid rgba(232,213,196,.07);color:var(--muted);vertical-align:top;width:50%}
+.tab td.b{color:#fff;font-weight:400;background:linear-gradient(90deg,rgba(201,162,39,.075),rgba(201,162,39,.02))}
+.tab tr:last-child td{border-bottom:none}
+
+/* ---------- ciclo ---------- */
+.ciclo{display:flex;gap:0;flex:1;align-items:center}
+.ciclo .et{flex:1;text-align:center;padding:0 8px;position:relative}
+.ciclo .n{width:52px;height:52px;margin:0 auto 16px;border-radius:50%;border:1px solid var(--gold-dim);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:21px;color:var(--gold-soft);background:radial-gradient(circle,rgba(201,162,39,.14),transparent 70%)}
+.ciclo .t{font-family:var(--serif);font-size:24px;margin-bottom:9px;color:#fff}
+.ciclo .d{font-size:14.5px;line-height:1.45;color:var(--muted);font-weight:300}
+.ciclo .seta{flex:none;width:34px;color:var(--gold-dim);font-size:19px;text-align:center;padding-bottom:52px}
+
+/* ---------- pacotes ---------- */
+.pacs{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:16px;flex:1;align-content:stretch}
+.pac{border:1px solid var(--line);border-radius:4px;padding:22px 20px;display:flex;flex-direction:column;background:linear-gradient(170deg,rgba(255,255,255,.035),rgba(255,255,255,.006))}
+.pac.dest{border-color:var(--gold);background:linear-gradient(170deg,rgba(201,162,39,.13),rgba(201,162,39,.02));box-shadow:0 0 44px rgba(201,162,39,.1)}
+.pac .fx{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);height:16px;margin-bottom:8px}
+.pac h4{font-family:var(--serif);font-size:28px;font-weight:400;margin-bottom:4px}
+.pac .lin{font-size:11.5px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px;padding-bottom:13px;border-bottom:1px solid var(--line)}
+.pac ul{list-style:none;flex:1}
+.pac li{font-size:14px;line-height:1.4;font-weight:300;color:var(--nude);padding:6px 0 6px 17px;position:relative}
+.pac li::before{content:'+';position:absolute;left:0;top:6px;color:var(--gold);font-size:14px}
+.pac .val{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:9px}
+.pac .val .l{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.pac .val .v{font-family:var(--serif);font-size:24px;color:var(--gold-soft);line-height:1.2}
+
+/* ---------- timeline ---------- */
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;flex:1;align-content:center}
+.tl .f{padding:0 26px 0 0;position:relative}
+.tl .f::before{content:'';position:absolute;left:0;top:32px;right:0;height:1px;background:var(--gold-dim)}
+.tl .f:last-child::before{background:linear-gradient(90deg,var(--gold-dim),transparent)}
+.tl .b{width:14px;height:14px;border-radius:50%;background:var(--ink);border:1px solid var(--gold);position:relative;top:26px;box-shadow:0 0 0 5px var(--ink),0 0 16px rgba(201,162,39,.5)}
+.tl .m{margin-top:52px;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:11px}
+.tl .t{font-family:var(--serif);font-size:29px;margin-bottom:11px;line-height:1.15}
+.tl .d{font-size:15.5px;line-height:1.5;color:var(--muted);font-weight:300;padding-right:14px}
+
+/* ---------- preco ---------- */
+.prec{display:flex;flex-direction:column;flex:1;justify-content:center}
+.prec .linhas{display:flex;flex-direction:column;gap:14px}
+.prec .l{display:flex;align-items:flex-start;gap:26px;padding:19px 26px;border:1px solid var(--line);border-radius:4px;background:linear-gradient(120deg,rgba(255,255,255,.035),transparent)}
+.prec .l.hi{border-color:var(--gold-dim);background:linear-gradient(120deg,rgba(201,162,39,.1),transparent)}
+.prec .l .esq{flex:1}
+.prec .l .nome{font-family:var(--serif);font-size:26px;margin-bottom:6px}
+.prec .l .desc{font-size:15px;line-height:1.5;color:var(--muted);font-weight:300}
+.prec .l .dir{flex:none;text-align:right;min-width:210px}
+.prec .l .v{font-family:var(--serif);font-size:34px;color:var(--gold-soft);line-height:1.1}
+.prec .l .cond{font-size:12.5px;color:var(--muted);margin-top:6px;letter-spacing:.04em}
+.prec .obs{margin-top:26px;padding:18px 24px;border-left:2px solid var(--gold);background:rgba(201,162,39,.06);font-size:16px;line-height:1.55;color:var(--nude);font-weight:300}
+.prec .obs b{color:#fff}
+.vazio{color:var(--gold);border-bottom:1px dashed var(--gold-dim);padding-bottom:1px}
+
+/* ---------- contato ---------- */
+.fim{position:absolute;inset:0}
+.fim .bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.fim .veil{position:absolute;inset:0;background:linear-gradient(260deg,rgba(8,6,10,.96) 20%,rgba(8,6,10,.72) 60%,rgba(8,6,10,.4) 100%)}
+.fim .in{position:absolute;inset:0;padding:0 88px;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;text-align:right}
+.fim .passos{list-style:none;margin:28px 0 40px;max-width:620px}
+.fim .passos li{font-size:17.5px;line-height:1.5;font-weight:300;color:var(--nude);padding:11px 0;border-bottom:1px solid rgba(232,213,196,.08);display:flex;gap:16px;justify-content:flex-end}
+.fim .passos .n{color:var(--gold);font-family:var(--serif);font-size:19px;min-width:22px}
+.fim .card{border:1px solid var(--gold-dim);border-radius:4px;padding:24px 34px;background:rgba(201,162,39,.06);text-align:right}
+.fim .card .m{font-size:14px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-soft);margin-bottom:12px}
+.fim .card .c{font-size:16px;color:var(--nude);line-height:1.8;font-weight:300}
+
+/* ---------- rodape / hud ---------- */
+.rod{position:absolute;left:88px;right:88px;bottom:34px;display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(168,158,151,.62);pointer-events:none}
+.rod .bloco{color:var(--gold);opacity:.75}
+.barra{position:absolute;left:0;bottom:0;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold-soft));transition:width .45s ease;z-index:5}
+
+.hud{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:40;opacity:0;transition:opacity .25s}
+.stage:hover .hud{opacity:1}
+.hud button{background:rgba(20,16,23,.9);border:1px solid var(--line);color:var(--nude);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:15px;transition:.2s;backdrop-filter:blur(8px)}
+.hud button:hover{border-color:var(--gold);color:var(--gold-soft)}
+.hud .conta{width:auto;padding:0 16px;border-radius:19px;font-size:12px;letter-spacing:.1em;cursor:default}
+
+.zonas{position:absolute;inset:0;z-index:6}
+.zonas i{position:absolute;top:0;bottom:0;width:16%;cursor:pointer}
+.zonas i.l{left:0}
+.zonas i.r{right:0;width:34%}
+
+/* ---------- indice ---------- */
+.menu{position:fixed;inset:0;background:rgba(6,4,8,.96);z-index:60;display:none;padding:60px 80px;overflow:auto;backdrop-filter:blur(6px)}
+.menu.on{display:block}
+.menu h3{color:var(--gold);font-size:15px;letter-spacing:.3em;text-transform:uppercase;font-family:var(--sans);font-weight:500;margin-bottom:28px}
+.menu .grade{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.menu .it{border:1px solid var(--line);border-radius:3px;padding:12px 14px;cursor:pointer;transition:.15s;background:rgba(255,255,255,.02)}
+.menu .it:hover{border-color:var(--gold);background:rgba(201,162,39,.1)}
+.menu .it .n{font-size:10px;color:var(--gold);letter-spacing:.16em;margin-bottom:5px}
+.menu .it .t{font-size:14px;color:var(--nude);font-weight:300;line-height:1.35}
+
+/* ---------- objecoes ---------- */
+.obj{position:fixed;inset:0;background:rgba(6,4,8,.97);z-index:70;display:none;padding:54px 70px;overflow:auto;backdrop-filter:blur(6px)}
+.obj.on{display:block}
+.obj .cab{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:26px}
+.obj .cab h3{font-family:var(--serif);font-size:36px;font-weight:300;color:#fff}
+.obj .cab span{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.obj .grade{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.obj .c{border:1px solid var(--line);border-left:2px solid var(--gold);border-radius:3px;padding:20px 24px;background:rgba(255,255,255,.025)}
+.obj .c .q{font-family:var(--serif);font-size:23px;color:var(--gold-soft);margin-bottom:10px}
+.obj .c .a{font-size:15.5px;line-height:1.58;color:var(--nude);font-weight:300}
+.obj .c .a b{color:#fff;font-weight:600}
+
+/* ---------- celular e telas estreitas ----------
+   O deck deixa de ser um palco fixo de 1280x720 e passa a ocupar a tela toda,
+   com cada slide rolando na vertical. Toda grade de 2+ colunas vira coluna unica. */
+@media (max-width:860px){
+  .stage{align-items:stretch;justify-content:stretch;background:var(--ink)}
+  .deck{width:100%;height:100vh;height:100dvh;transform:none!important}
+  .slide{border-radius:0}
+  .slide.on{display:flex;flex-direction:column}
+
+  /* areas de conteudo passam a rolar */
+  .capa,.secao,.fim{position:relative;inset:auto;flex:1;min-height:0;display:flex}
+  .pad,.capa .in,.secao .in,.fim .in{position:relative;inset:auto;flex:1;min-height:0;
+    max-width:none;overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:calc(26px + env(safe-area-inset-top)) 20px 78px}
+  .capa .bg,.secao .bg,.fim .bg,.bgfoto{position:absolute}
+  .fit{transform:none!important;width:auto!important;flex:0 0 auto}
+  .pad.decl>.fit{justify-content:flex-start}
+  .glow{width:420px;height:420px}
+
+  /* tipografia */
+  h1{font-size:34px}
+  h2{font-size:27px}
+  h3{font-size:22px}
+  .sub{font-size:15px;margin-bottom:22px;max-width:none}
+  .kicker{font-size:10.5px;letter-spacing:.24em;margin-bottom:16px}
+  .kicker::after{width:28px}
+  .rule{margin-bottom:20px}
+
+  .capa h1{font-size:38px;margin:8px 0 18px}
+  .capa .in{justify-content:flex-end;padding-bottom:96px}
+  .capa .veil{background:linear-gradient(180deg,rgba(8,6,10,.55) 0%,rgba(8,6,10,.9) 45%,rgba(8,6,10,.98) 100%)}
+  .capa .meta{margin-top:26px;padding-top:18px;gap:20px;flex-wrap:wrap;font-size:12px}
+  .capa .bg{background-position:center}
+
+  .secao .in{justify-content:center}
+  .secao .num{font-size:74px;margin-bottom:12px}
+  .secao h1{font-size:40px;max-width:none}
+  .secao .sub{font-size:16px;margin-top:14px;max-width:none}
+  .secao .veil{background:linear-gradient(180deg,rgba(8,6,10,.6),rgba(8,6,10,.95) 60%)}
+
+  .decl .frase{font-size:27px;max-width:none}
+  .decl .frase p{margin-bottom:14px}
+  .decl .nota{margin-top:24px;padding-left:16px;font-size:15px;max-width:none}
+  .decl ul{margin-top:20px}
+  .decl ul li{font-size:15px;padding:9px 0 9px 22px}
+  .decl ul li::before{top:18px;width:9px}
+  .decl.comfoto .frase,.decl.comfoto .nota,.decl.comfoto ul{max-width:none}
+  .bgveil{background:linear-gradient(180deg,rgba(13,10,14,.72),rgba(13,10,14,.97) 55%)}
+
+  .itens li{padding:11px 0;gap:13px}
+  .itens .txt,.itens.compact .txt{font-size:14.5px;line-height:1.45}
+  .itens .dot{margin-top:8px}
+  .cols2{columns:1}
+
+  .duo,.cen,.pacs,.tl,.obj .grade{grid-template-columns:1fr;gap:14px}
+  .pacs{grid-auto-flow:row}
+  .painel,.cen .box,.pac{padding:20px 18px}
+  .painel h4{font-size:21px;margin-bottom:13px;padding-bottom:10px}
+  .painel li,.cen li,.pac li{font-size:14px;padding:6px 0 6px 16px}
+  .cen .fala{font-size:20px;margin-bottom:14px}
+  .cen ul{margin-top:14px}
+  .cen .selo{font-size:13.5px;margin-top:13px;padding-top:12px}
+
+  .tab td{font-size:13px;padding:10px 12px}
+  .tab th{font-size:10px;letter-spacing:.16em;padding:0 12px 10px}
+
+  .ciclo{flex-direction:column;align-items:stretch;gap:2px}
+  .ciclo .et{display:grid;grid-template-columns:38px 1fr;column-gap:14px;align-items:start;text-align:left;padding:9px 0}
+  .ciclo .n{margin:0;width:38px;height:38px;font-size:16px;grid-row:1/span 2}
+  .ciclo .t,.ciclo .d{grid-column:2}
+  .ciclo .t{font-size:18px;margin-bottom:3px}
+  .ciclo .d{font-size:13.5px}
+  .ciclo .seta{display:none}
+
+  .pac h4{font-size:25px}
+  .pac .lin{margin-bottom:14px;padding-bottom:11px;font-size:11px}
+  .pac .val{margin-top:14px;padding-top:13px;flex-direction:row;gap:32px}
+  .pac .val .v{font-size:22px}
+
+  .tl .f{padding:0 0 4px}
+  .tl .f::before{display:none}
+  .tl .b{top:0}
+  .tl .m{margin-top:10px;margin-bottom:6px;font-size:10.5px}
+  .tl .t{font-size:21px;margin-bottom:6px}
+  .tl .d{font-size:14px;padding-right:0}
+
+  .prec{justify-content:flex-start}
+  .prec .linhas{gap:11px}
+  .prec .l{flex-direction:column;gap:12px;padding:16px 18px}
+  .prec .l .nome{font-size:20px}
+  .prec .l .desc{font-size:13.5px}
+  .prec .l .dir{text-align:left;min-width:0;display:flex;align-items:baseline;gap:12px}
+  .prec .l .v{font-size:26px}
+  .prec .l .cond{margin-top:0}
+  .prec .obs{margin-top:18px;padding:14px 16px;font-size:14px}
+
+  .fim .in{align-items:flex-start;text-align:left;justify-content:center}
+  .fim h2{font-size:30px!important}
+  .fim .veil{background:linear-gradient(180deg,rgba(8,6,10,.6),rgba(8,6,10,.96) 55%)}
+  .fim .kicker{justify-content:flex-start!important}
+  .fim .passos{margin:18px 0 26px;max-width:none;width:100%}
+  .fim .passos li{font-size:14.5px;justify-content:flex-start;padding:9px 0}
+  .fim .card{text-align:left;padding:18px 22px;width:100%}
+  .fim .card .m{font-size:12px;letter-spacing:.3em}
+  .fim .card .c{font-size:15px}
+
+  /* a contagem e o bloco ja aparecem no HUD; o rodape so brigaria com ele */
+  .rod{display:none}
+  .pac .fx:empty{display:none}
+
+  /* navegacao: HUD sempre visivel e alvos grandes; zonas de clique atrapalhariam a rolagem */
+  .hud{opacity:1;bottom:calc(14px + env(safe-area-inset-bottom));gap:10px}
+  .hud::before{content:'';position:absolute;left:-60px;right:-60px;top:-26px;bottom:-40px;z-index:-1;
+    pointer-events:none;background:linear-gradient(transparent,rgba(13,10,14,.9) 60%)}
+  .hud button{width:44px;height:44px;font-size:17px}
+  .hud .conta{padding:0 14px;font-size:12px}
+  .zonas{display:none}
+
+  .menu,.obj{padding:26px 18px calc(26px + env(safe-area-inset-bottom))}
+  .menu .grade{grid-template-columns:1fr 1fr;gap:8px}
+  .menu h3{font-size:12px;margin-bottom:18px}
+  .obj .cab{flex-direction:column;gap:6px;margin-bottom:18px}
+  .obj .cab h3{font-size:26px}
+  .obj .c{padding:16px 18px}
+  .obj .c .q{font-size:19px}
+  .obj .c .a{font-size:14.5px}
+}
+
+/* ---------- impressao ---------- */
+@page{size:1280px 720px;margin:0}
+@media print{
+  html,body{overflow:visible;background:#fff;height:auto}
+  .stage{position:static;display:block;background:none}
+  .deck{transform:none!important;width:auto;height:auto}
+  .slide{position:relative;display:block!important;width:1280px;height:720px;page-break-after:always;break-after:page;animation:none;border-radius:0}
+  .slide:last-child{page-break-after:auto}
+  .hud,.menu,.obj,.zonas{display:none!important}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="deck" id="deck"></div>
+  <div class="hud">
+    <button id="bPrev" title="Anterior (seta esquerda)">&#8249;</button>
+    <button class="conta" id="bConta">1 / 1</button>
+    <button id="bNext" title="Proximo (seta direita)">&#8250;</button>
+    <button id="bMenu" title="Indice (G)">&#9776;</button>
+    <button id="bObj" title="Objecoes (O)">&#9733;</button>
+    <button id="bFull" title="Tela cheia (F)">&#9974;</button>
+  </div>
+</div>
+
+<div class="menu" id="menu"><h3>Indice — clique para ir ao slide</h3><div class="grade" id="menuGrade"></div></div>
+<div class="obj" id="obj"></div>
+
+<script>
+/* =========================================================================
+   TABELA DE PRECOS — EDITE SOMENTE AQUI.
+   Troque o "___" pelo valor. Ex: site: "R$ 550"
+   Enquanto tiver "___", o campo aparece destacado em dourado no slide.
+   ========================================================================= */
+/* Painel de objecoes: so existe no arquivo apresentar.html, na URL com
+   ?apresentador=1, ou quando o deck roda direto do computador (file://). */
+const APRESENTADOR = location.protocol === 'file:'
+  || /apresentar/.test(location.pathname)
+  || new URLSearchParams(location.search).has('apresentador');
+
+const PRECOS = {
+  site:                "R$ 550",
+  sitePaginasInclusas: "5",
+  sitePaginaExtra:     "R$ 100",
+  siteManutencao:      "R$ 300",
+  lp:                  "R$ 300",
+  lpManutencao:        "R$ 200",
+  sitePrazo:           "10",
+  siteAjustes:         "3",
+
+  crmGrowth:         "R$ 298",
+  crmPro:            "R$ 387",
+  crmBusiness:       "R$ 676",
+  crmFidelidade:     "6",
+
+  social:            "R$ 450",
+  socialPosts:       "12",
+  socialReels:       "6",
+  socialContrato:    "6",
+
+  avMensal:          "R$ 990",
+  avDiaria:          "R$ 1.190",
+  avRebranding:      "R$ 1.990",
+  avDiariasMes:      "1",
+  avEntrega:         "7",
+
+  trafegoMeta:       "R$ 550",
+  trafegoMetaGoogle: "R$ 850",
+
+  /* Escada de 4 degraus. Como o CRM nao tem taxa de implantacao, a entrada e a
+     mesma em todos os pacotes — e so o site. O que muda e a mensalidade. */
+  pacoteEntrada:     "R$ 550",
+  pacote1Mensal:     "R$ 690",
+  pacote2Mensal:     "R$ 950",
+  pacote3Mensal:     "R$ 1.790",
+  pacote4Mensal:     "R$ 2.450",
+  pacoteDesconto:    "18",
+  pacoteContrato:    "6",
+
+  primeiraEntrega:   "15",
+  validade:          "15"
+};
+
+/* Identidade da agencia — troque aqui se o nome for outro */
+const AGENCIA = "ARA Systems";
+const CLIENTE = "Rafina";
+
+/* ========================================================================= */
+
+const IMG = n => 'imagens/' + n;
+
+function p(chave){
+  const v = PRECOS[chave] === undefined ? '' : String(PRECOS[chave]);
+  const vazio = v === '' || v.indexOf('___') > -1 || v === '__';
+  return '<span class="' + (vazio ? 'vazio' : '') + '">' + (v || 'R$ ___') + '</span>';
+}
+function tx(s){
+  return String(s).replace(/\{\{(\w+)\}\}/g, (_, k) => p(k));
+}
+
+const SLIDES = [
+
+/* ============================== ABERTURA ============================== */
+{tipo:'capa', img:'01-capa.png', marca:AGENCIA,
+ titulo:'O braço de tecnologia da ' + CLIENTE,
+ sub:'Site · CRM · Social Media · Audiovisual · Tráfego Pago',
+ meta:[['Proposta','Comercial completa'],['Data','Setembro de 2026'],['Validade','{{validade}} dias']]},
+
+{tipo:'declaracao', bloco:'Abertura', img:'02-diagnostico.png',
+ frase:['Hoje a ' + CLIENTE + ' vende bem.','Mas quanto ela <em class="g">deixa de vender</em> por falta de estrutura?'],
+ lista:[
+  'Quantas pessoas perguntaram preço no Direct e nunca receberam resposta?',
+  'Quantas clientes sumiram depois do último atendimento e ninguém percebeu?',
+  'Quantas fotos de resultado incríveis estão perdidas no rolo da câmera?',
+  'Quanto tempo a equipe gasta repetindo a mesma informação todo dia?'],
+ nota:'Não é falta de qualidade. É falta de <strong>sistema</strong>.',
+ fecho:'E o momento é o melhor possível: a marca está mudando. Rebranding sem estrutura digital é maquiagem. Com estrutura, é reposicionamento de mercado.'},
+
+{tipo:'lista', bloco:'Abertura', kicker:'Quem somos',
+ titulo:'Não somos um freelancer de site',
+ sub:'Também não somos só uma agência de post. Somos uma estrutura completa de tecnologia e marketing que entra como departamento da sua empresa.',
+ itens:[
+  ['Desenvolvimento','sites, sistemas e integrações sob medida'],
+  ['Produto próprio','KoruVision CRM — código-fonte nosso, não revendemos software de terceiros'],
+  ['Social Media dedicada','planejamento, produção e gestão das redes'],
+  ['Equipe de audiovisual','fotografia e vídeo profissional dentro do salão'],
+  ['Gestão de tráfego pago','Meta Ads e Google Ads com mensuração real'],
+  ['Treinamento presencial','sua equipe operando com segurança']],
+ nota:'<strong>Estamos a minutos do salão.</strong> Isso não é detalhe: é presença, é reunião olho no olho, é treinamento na cadeira da sua equipe.'},
+
+{tipo:'duo', bloco:'Abertura', kicker:'Diagnóstico honesto',
+ titulo:'Onde a ' + CLIENTE + ' está hoje',
+ colA:{tom:'pos', titulo:'Pontos fortes', itens:[
+  'Instagram ativo e com resultado real',
+  'Sistema de gestão robusto já implantado — agenda, comanda e financeiro',
+  'Reputação e base de clientes fiéis na região',
+  'Portfólio amplo: cabelo, unhas, depilação e estética',
+  'Equipe técnica qualificada e atendimento reconhecido']},
+ colB:{tom:'neg', titulo:'Lacunas', itens:[
+  'Todo o conteúdo depende de uma plataforma que a ' + CLIENTE + ' não controla e que <b>censura parte dos serviços</b>',
+  'Não existe vitrine oficial da marca fora do Instagram',
+  'Atendimento manual e repetitivo — preço e procedimento digitados do zero toda vez',
+  'Não existe base de imagens profissional própria',
+  'O sistema atual é excelente para <b>operar</b>, mas não foi feito para <b>vender e relacionar</b>']},
+ nota:'Nosso trabalho não é substituir o que funciona. É <strong>completar o que falta</strong>.<br>Seu sistema de agenda continua, sua equipe continua, seu jeito de atender continua. Nada de “vire tudo do avesso”, nada de robô falando com a sua cliente, nada de ferramenta que ninguém sabe mexer. <em class="g">Tecnologia que a sua equipe consegue usar, ou não serve para nada.</em>'},
+
+/* ================================ SITE ================================ */
+{tipo:'secao', img:'03-site.png', num:'01', titulo:'Site',
+ sub:'A vitrine que é sua, sem censura e sem depender de plataforma nenhuma.'},
+
+{tipo:'lista', bloco:'Site', kicker:'A diferença',
+ titulo:'O que o Instagram não te dá',
+ sub:'“Mas eu vendo tudo pelo Instagram.” Verdade — e o site não veio para substituir o Instagram, veio para fazer o que ele não deixa você fazer.',
+ itens:[
+  ['Sem censura','depilação íntima, resultados corporais, antes e depois — a plataforma limita, esconde ou derruba. No seu site você publica o que quiser, do seu jeito'],
+  ['Organização','hoje um serviço de cabelo está num post de março e o preço num Story que expirou. No site, cada procedimento tem página própria e permanente'],
+  ['Google','quem pesquisa “depilação em Guaratiba” ou “progressiva perto de mim” não te encontra no Instagram. Encontra no site'],
+  ['Controle','conta bloqueada, hackeada ou com alcance derrubado significa negócio parado. O site é seu, para sempre'],
+  ['Profissionalismo','perfil de Instagram qualquer um tem. Site próprio separa negócio de hobby']],
+ nota:'Instagram é onde a cliente <strong>descobre</strong> você. Site é onde ela <strong>decide</strong> por você.'},
+
+{tipo:'cenario', bloco:'Site', kicker:'O uso mais poderoso',
+ titulo:'Link no atendimento',
+ sub:'A cliente pergunta no WhatsApp: “Quanto é a progressiva?”',
+ antes:{tag:'Hoje', fala:'A atendente digita preço, explica duração, procura foto e explica o cuidado pós.',
+  itens:['6 minutos de conversa','Toda vez, para cada cliente','A informação sai diferente a cada atendimento','Se a atendente estiver ocupada, a cliente espera'],
+  selo:'6 minutos por pessoa'},
+ depois:{tag:'Com o site', fala:'A atendente envia <em class="g">um link</em>. A cliente abre uma página completa do procedimento.',
+  itens:['Fotos de resultado, preço, duração e cuidados','Profissional responsável e botão de agendar','A informação chega igual e perfeita, sempre','Uma página para cada serviço: cabelo, unhas, depilação, estética'],
+  selo:'20 segundos — e vende mais'}},
+
+{tipo:'lista', bloco:'Site', kicker:'Escopo',
+ titulo:'O que está incluso',
+ sub:'Uma coisa é dizer que o trabalho é bom. Outra é ter os resultados organizados por procedimento, com foto profissional, em página própria.',
+ cols:2,
+ itens:[
+  ['Design exclusivo','alinhado à nova identidade visual'],
+  ['Páginas por categoria','cabelo, unhas, depilação, estética'],
+  ['Subpáginas de procedimento','preço, descrição, galeria e cuidados'],
+  ['Página institucional','história, equipe e espaço'],
+  ['Galeria de antes e depois','por serviço, sem limite de imagens'],
+  ['Página da equipe e depoimentos','quem atende e clientes reais falando do resultado'],
+  ['Área de conteúdo','blog opcional, ótimo para Google'],
+  ['WhatsApp em todas as páginas','botão flutuante'],
+  ['Integração com agendamento',''],
+  ['100% adaptado para celular','onde 90% das clientes abrem'],
+  ['SEO local','Guaratiba e região'],
+  ['Hospedagem, domínio e HTTPS','tudo configurado'],
+  ['Rastreamento instalado','essencial para o tráfego pago depois']],
+ nota:'O pacote inclui <strong>{{sitePaginasInclusas}} páginas</strong>. Cada página nova de procedimento entra por <strong>{{sitePaginaExtra}}</strong> — você expande o site conforme o catálogo cresce, sem refazer nada.'},
+
+{tipo:'preco', bloco:'Site', kicker:'Condições comerciais', titulo:'Investimento — Site',
+ linhas:[
+  {nome:'Site completo', desc:'Design exclusivo, do projeto à publicação, com {{sitePaginasInclusas}} páginas inclusas. 50% na assinatura e 50% na entrega.', valor:'{{site}}', cond:'50% + 50%', hi:true},
+  {nome:'Landing page avulsa', desc:'Página única para campanha, promoção ou lançamento de procedimento. Ideal como destino de tráfego pago.', valor:'{{lp}}', cond:'por página'},
+  {nome:'Manutenção do site', desc:'Hospedagem, domínio, segurança, backup, atualização de preços e fotos, e suporte por WhatsApp de segunda a sexta.', valor:'{{siteManutencao}}', cond:'por mês'},
+  {nome:'Manutenção da landing page', desc:'Hospedagem, segurança e ajustes de conteúdo da campanha.', valor:'{{lpManutencao}}', cond:'por mês'},
+  {nome:'Página adicional', desc:'Cada nova página de procedimento, com galeria, preço e cuidados. O site cresce junto com o catálogo.', valor:'{{sitePaginaExtra}}', cond:'por página'}],
+ obs:'Prazo: <strong>{{sitePrazo}} dias úteis</strong> após o recebimento do conteúdo · <strong>{{siteAjustes}} rodadas</strong> de ajuste inclusas.<br>Sem manutenção, site vira folheto velho. Com manutenção, vira canal de venda vivo.'},
+
+/* ================================= CRM ================================= */
+{tipo:'secao', img:'04-crm.png', num:'02', titulo:'KoruVision CRM',
+ sub:'A camada de atendimento, relacionamento e organização comercial que hoje não existe.'},
+
+{tipo:'declaracao', bloco:'CRM',
+ frase:['Vamos ser diretos sobre o seu sistema atual: <em class="g">ele é bom.</em>'],
+ nota:'Ele resolve agenda, comanda, caixa e cadastro. E resolve bem. Mas ele foi construído para <strong>registrar o que já aconteceu</strong>.<br><br>O KoruVision foi construído para <strong>fazer acontecer</strong>: captar, atender, acompanhar, reativar e medir.',
+ fecho:'Não competem. Se completam.'},
+
+{tipo:'lista', bloco:'CRM', kicker:'Produto próprio',
+ titulo:'O que é o KoruVision',
+ sub:'Plataforma desenvolvida pela ' + AGENCIA + '. Código-fonte nosso. Isso muda tudo na prática.',
+ itens:[
+  ['Ajustamos o sistema para a ' + CLIENTE,'e não a ' + CLIENTE + ' para o sistema'],
+  ['Pediu um recurso? Entra no desenvolvimento','sem depender de suporte gringo ou fila de fornecedor'],
+  ['Sistema com a sua marca','suas cores e a logo nova aplicadas na plataforma'],
+  ['Sem intermediário','quem vende, desenvolve e dá suporte é a mesma equipe'],
+  ['Catálogo, propostas e formulários','preços, PDF com a sua marca, anamnese e captação de lead'],
+  ['Painel de métricas e app no celular','origem das clientes, conversão e receita por serviço, no bolso']]},
+
+{tipo:'duo', bloco:'CRM', kicker:'Onde a automação atua',
+ titulo:'O que entra e o que nunca entra',
+ sub:'“Eu não gosto de automação com cliente.” Concordamos: robô respondendo cliente de estética responde errado, esfria a conversa e quebra a confiança. Beleza se vende no vínculo humano.',
+ colA:{tom:'neg', titulo:'Não entra', itens:[
+  'Robô conversando com a sua cliente',
+  'IA dando preço sozinha',
+  'Resposta automática fria no Direct',
+  'Qualquer coisa que tire o toque humano do atendimento']},
+ colB:{tom:'pos', titulo:'Entra — o trabalho invisível que hoje ninguém faz', itens:[
+  'Confirmação de horário automática no dia anterior',
+  'Aviso interno quando alguém não respondeu uma cliente',
+  'Fechamento de caixa e relatório do dia enviados sozinhos',
+  'Alerta de cliente que não volta há 60 dias',
+  'Cobrança e lembrete de pagamento pendente',
+  'Aniversário da cliente sinalizado para a equipe',
+  'Pós-atendimento: “como ficou o cabelo?” três dias depois',
+  'Pedido de avaliação no Google após o atendimento']},
+ nota:'Você automatiza a operação. <strong>Nunca o relacionamento.</strong><br>E se um dia você quiser IA, ela entra como copiloto: sugere a resposta com base no seu catálogo real, sua atendente lê, ajusta e envia. Ela nunca fala sozinha, não inventa preço e passa para o humano quando não sabe. <em class="g">Você decide o nível — e começamos em zero, se preferir.</em>'},
+
+{tipo:'lista', bloco:'CRM', kicker:'Recurso 01',
+ titulo:'Caixa de entrada única',
+ sub:'Hoje: Direct do Instagram, WhatsApp da recepção, WhatsApp pessoal, comentário do post, Facebook. Cinco lugares, nenhum histórico, ninguém sabe quem respondeu o quê.',
+ itens:[
+  ['Uma tela só','Instagram, Facebook, WhatsApp e site no mesmo lugar'],
+  ['Histórico completo','tudo o que a cliente já falou, para sempre'],
+  ['Responsabilidade clara','quem respondeu, quando, e o que ficou pendente'],
+  ['Áudio transcrito','lê em texto sem parar o atendimento para ouvir'],
+  ['Atendente saiu da empresa?','o histórico fica. Não vai embora no celular dela']]},
+
+{tipo:'lista', bloco:'CRM', kicker:'Recurso 02',
+ titulo:'Funil e reativação: o dinheiro que já está na sua base',
+ sub:'Cada interessada é um cartão que anda — Interessada → Orçamento → Agendada → Atendida → Retorno. E quem já foi cliente volta a ser convidada.',
+ cols:2,
+ itens:[
+  ['Você vê onde cada pessoa parou','e quantas ficaram em cada etapa'],
+  ['Descobre onde perde','“20 pediram orçamento de botox e só 4 agendaram — por quê?”'],
+  ['Enxerga dinheiro parado','cada cartão tem valor; o funil mostra a receita em aberto'],
+  ['Ninguém mais some','sem alguém perceber e sem alguém agir'],
+  ['Disparo segmentado','“todas que fizeram depilação e não voltam há 45 dias”'],
+  ['Datas comemorativas','Dia das Mães, Black Friday, Natal, aniversário do salão'],
+  ['Horário ocioso','terça de manhã vazia? Oferta para quem mora perto'],
+  ['Avaliação no Google','reputação local sobe de forma constante']],
+ nota:'Preencher horário vago com cliente que já te conhece é <strong>o dinheiro mais barato que existe</strong>.'},
+
+{tipo:'comparativo', bloco:'CRM', kicker:'Antes e depois',
+ titulo:'Hoje × Com o KoruVision',
+ cabA:'Hoje', cabB:'Com KoruVision',
+ linhas:[
+  ['Direct, WhatsApp e Facebook em telas separadas','Uma caixa de entrada só'],
+  ['Histórico no celular da atendente','Histórico da empresa, permanente'],
+  ['Interessada que não fechou se perde','Funil visual com acompanhamento'],
+  ['Cliente sumiu e ninguém percebeu','Alerta automático de inatividade'],
+  ['Preço digitado do zero toda vez','Catálogo, link e arquivo prontos'],
+  ['Base de clientes parada','Campanha de reativação segmentada'],
+  ['“Acho que esse mês foi bom”','Painel com número real'],
+  ['Sistema com a cara do fornecedor','Sistema com a marca da ' + CLIENTE]]},
+
+{tipo:'preco', bloco:'CRM', kicker:'Condições comerciais', titulo:'Investimento — CRM',
+ sub:'Sem taxa de implantação. A configuração da conta, a personalização com a identidade nova, o cadastro do catálogo, a conexão dos canais, a montagem do funil, as automações internas e o treinamento da equipe entram por nossa conta. Você paga só o plano da plataforma — e sobe de plano quando a operação pedir.',
+ linhas:[
+  {nome:'Plano Growth', desc:'3 usuários · 2 canais · 5.000 contatos · 15 automações. Para começar com WhatsApp e Instagram numa tela só.', valor:'{{crmGrowth}}', cond:'por mês'},
+  {nome:'Plano Pro — recomendado', desc:'8 usuários · 4 canais · 2 números de WhatsApp · 25.000 contatos · 50 automações · <strong>campanhas de reativação em massa</strong>.', valor:'{{crmPro}}', cond:'por mês', hi:true},
+  {nome:'Plano Business', desc:'20 usuários · 8 canais · 4 números de WhatsApp · 100.000 contatos · relatórios avançados. Para quando abrir novas unidades.', valor:'{{crmBusiness}}', cond:'por mês'}],
+ obs:'Compromisso mínimo de <strong>{{crmFidelidade}} meses</strong> — é o que cobre a implantação que não cobramos.<br>As campanhas de reativação que mostramos aqui começam no <strong>Pro</strong>: é o plano que recomendamos para a ' + CLIENTE + '.'},
+
+/* ============================ SOCIAL MEDIA ============================ */
+{tipo:'secao', img:'05-social.png', num:'03', titulo:'Social Media',
+ sub:'Instagram, Facebook e TikTok com planejamento, constância e intenção comercial.'},
+
+{tipo:'declaracao', bloco:'Social Media',
+ frase:['O custo escondido de fazer sozinha.'],
+ nota:'Hoje o Instagram da ' + CLIENTE + ' é feito por quem também precisa gerir salão, equipe, agenda e caixa. O resultado é previsível — e não é culpa de ninguém.',
+ lista:[
+  'Posta quando sobra tempo (e raramente sobra)',
+  'Sem linha de raciocínio entre um post e outro',
+  'Semanas fortes seguidas de semanas mudas',
+  'Conteúdo reativo, nunca estratégico'],
+ fecho:'Uma social media dedicada não é gasto. É a devolução do seu tempo mais caro.'},
+
+{tipo:'lista', bloco:'Social Media', kicker:'Método',
+ titulo:'Como trabalhamos',
+ cols:2,
+ itens:[
+  ['Social media dedicada','uma profissional para a ' + CLIENTE + ', não um estagiário rodando 40 contas'],
+  ['Planejamento do mês','reunião de brainstorm com você'],
+  ['Calendário com 1 mês de antecedência','você aprova tudo antes de ir ao ar'],
+  ['Campanha temática do mês','conceito, peças e narrativa própria'],
+  ['Posts livres reservados','para o que surgir na hora'],
+  ['Três redes','Instagram, Facebook e TikTok'],
+  ['Formatos que vendem','feed, Reels, carrossel e destaques fixos'],
+  ['Copy completa','legendas, roteiros, hashtags e chamada para ação'],
+  ['Comentários e Direct','acompanhamento diário'],
+  ['Relatório mensal','o que performou e o que muda no mês seguinte']],
+ nota:'Você para de acordar pensando “o que eu posto hoje”, a marca passa a falar com uma voz só e cada campanha puxa um serviço. O caminho fica rastreável: post → Direct → CRM → agendamento.<br><strong>O post não termina no like. Termina na cadeira do salão.</strong>'},
+
+{tipo:'preco', bloco:'Social Media', kicker:'Condições comerciais', titulo:'Investimento — Social Media',
+ linhas:[
+  {nome:'Gestão de redes sociais', desc:'{{socialPosts}} posts de feed/carrossel · {{socialReels}} Reels · 1 campanha temática do mês · 1 reunião de planejamento · gestão de comentários e Direct · relatório de desempenho.', valor:'{{social}}', cond:'por mês', hi:true}],
+ obs:'Contrato mínimo de <strong>{{socialContrato}} meses</strong>. Social media com menos de 3 meses não gera resultado mensurável — o algoritmo precisa de constância para entregar.'},
+
+/* ============================= AUDIOVISUAL ============================= */
+{tipo:'secao', img:'06-audiovisual.png', num:'04', titulo:'Audiovisual',
+ sub:'A matéria-prima visual que alimenta o site, as redes, os anúncios e o atendimento.'},
+
+{tipo:'lista', bloco:'Audiovisual', kicker:'Escopo',
+ titulo:'O que a equipe de audiovisual faz',
+ sub:'Estética é um negócio visual: a cliente compra com os olhos. Foto de celular com luz de teto comunica uma coisa; foto profissional comunica outra — e a qualidade da imagem define o preço que você pode cobrar.',
+ cols:2,
+ itens:[
+  ['Captação presencial no salão','{{avDiariasMes}} diária(s) por mês'],
+  ['Fotografia profissional','procedimentos e resultados'],
+  ['Antes e depois padronizados','mesma luz, mesmo ângulo, mesmo fundo'],
+  ['Vídeos verticais','para Reels e TikTok'],
+  ['Bastidores','rotina da equipe e processos'],
+  ['Depoimentos em vídeo','clientes reais falando do resultado'],
+  ['Espaço e equipe','fotos institucionais com a identidade nova'],
+  ['Tratamento e edição','de todo o material captado'],
+  ['Roteiro e direção no dia','sua equipe não precisa saber posar']]},
+
+{tipo:'lista', bloco:'Audiovisual', kicker:'O ativo que fica',
+ titulo:'Você grava uma vez. Usa em cinco canais.',
+ sub:'Cada captação constrói o banco de imagens próprio da ' + CLIENTE + '.',
+ itens:[
+  ['As páginas do site','galeria e portfólio por procedimento'],
+  ['Os posts do mês','feed, carrossel e Reels'],
+  ['Os anúncios de tráfego pago','criativos que realmente convertem'],
+  ['As mensagens do CRM','material enviado no atendimento'],
+  ['Materiais físicos','cardápio de serviços, impressos e fachada']],
+ nota:'<strong>Para sempre.</strong> Todo o material é propriedade da ' + CLIENTE + ', com cessão total de uso.'},
+
+{tipo:'preco', bloco:'Audiovisual', kicker:'Condições comerciais', titulo:'Investimento — Audiovisual',
+ linhas:[
+  {nome:'Pacote mensal recorrente', desc:'{{avDiariasMes}} diária(s) de captação por mês com edição completa e entrega organizada por tema.', valor:'{{avMensal}}', cond:'por mês', hi:true},
+  {nome:'Diária avulsa', desc:'Captação pontual, sem recorrência.', valor:'{{avDiaria}}', cond:'por diária'},
+  {nome:'Ensaio de rebranding', desc:'Recomendado. Pacote de lançamento da nova identidade: espaço, equipe, serviços e institucional.', valor:'{{avRebranding}}', cond:'único'}],
+ obs:'Entrega em <strong>{{avEntrega}} dias úteis</strong> após a captação, em pasta organizada por tema.'},
+
+/* ============================= TRAFEGO PAGO ============================= */
+{tipo:'secao', img:'07-trafego.png', num:'05', titulo:'Tráfego Pago',
+ sub:'O multiplicador — que só funciona depois que a base está pronta.'},
+
+{tipo:'lista', bloco:'Tráfego Pago', kicker:'Método',
+ titulo:'Como funciona a gestão',
+ sub:'Tráfego é o último passo, não o primeiro: anunciar sem site é jogar dinheiro numa página que você não controla, sem CRM é receber lead que ninguém acompanha, e sem material visual é competir de cara feia num mercado visual.',
+ cols:2,
+ itens:[
+  ['Meta Ads e Google Ads','Instagram, Facebook e busca'],
+  ['Campanha por procedimento','anúncio de cabelo para quem busca cabelo'],
+  ['Segmentação geográfica','Guaratiba, Magarça, Ilha e bairros vizinhos'],
+  ['Remarketing','quem viu a página de depilação e não agendou volta a ver o anúncio'],
+  ['Destino certo','página específica do site, não perfil genérico'],
+  ['Lead direto no CRM','com a origem identificada'],
+  ['Testes A/B','de criativo e de público'],
+  ['Relatório mensal','investimento, leads e agendamentos gerados']],
+ nota:'Com site, CRM e audiovisual prontos, o tráfego vira <strong>multiplicador</strong>. Sem eles, vira despesa.'},
+
+{tipo:'ciclo', bloco:'Tráfego Pago', kicker:'O ciclo completo',
+ titulo:'O que só um parceiro único entrega',
+ passos:[
+  ['Audiovisual','produz a imagem'],
+  ['Social Media','transforma em conteúdo'],
+  ['Tráfego','leva a pessoa certa'],
+  ['Site','apresenta o serviço direito'],
+  ['CRM','captura, atende e acompanha']],
+ nota:'Cinco fornecedores diferentes não conseguem fazer isso. <strong>Um parceiro só, sim.</strong>'},
+
+{tipo:'preco', bloco:'Tráfego Pago', kicker:'Condições comerciais', titulo:'Investimento — Tráfego Pago',
+ linhas:[
+  {nome:'Gestão · Meta Ads', desc:'Instagram e Facebook. Campanha por procedimento, remarketing, testes de criativo e relatório mensal.', valor:'{{trafegoMeta}}', cond:'por mês', hi:true},
+  {nome:'Gestão · Meta Ads + Google Ads', desc:'Tudo do Meta somado à busca do Google: alcança quem já está procurando o procedimento agora.', valor:'{{trafegoMetaGoogle}}', cond:'por mês'}],
+ obs:'Sem taxa de setup: configuração de conta, pixel, públicos e conversões já inclusa.<br>Prazo mínimo de <strong>3 meses</strong> — campanha precisa de dados para otimizar. A verba de anúncio é paga por você direto à plataforma e não passa por nós.'},
+
+/* =========================== TREINAMENTO =========================== */
+{tipo:'secao', img:'08-treinamento.png', num:'06', titulo:'Treinamento e Operação',
+ sub:'O diferencial que ninguém oferece: a gente fica dentro da operação.'},
+
+{tipo:'lista', bloco:'Treinamento', kicker:'Suporte contínuo',
+ titulo:'A maioria entrega e some. Nós ficamos.',
+ itens:[
+  ['Grupo de WhatsApp dedicado',CLIENTE + ' e equipe ' + AGENCIA + ', com resposta de segunda a sexta'],
+  ['Reunião mensal de alinhamento','resultados, ajustes e próximos passos'],
+  ['Treinamento presencial','no salão, com a equipe, na prática'],
+  ['Estamos perto','precisou, a gente vai. Sem cobrar deslocamento, sem esperar semana'],
+  ['Suporte no sistema que você já usa','se a equipe travar no sistema atual, a gente destrava'],
+  ['Documentação própria','manual de uso feito para a ' + CLIENTE],
+  ['Reciclagem','sempre que entrar profissional novo'],
+  ['Precisa de um formulário novo?','a gente faz. Quer testar uma promoção diferente? A gente monta e mede'],
+  ['Vai abrir uma unidade nova?','a gente replica a estrutura inteira']],
+ nota:'Fornecedor você contrata para uma entrega. Braço de tecnologia você tem <strong>para tudo o que aparecer</strong>.<br>A ' + CLIENTE + ' passa a ter um departamento de tecnologia — sem a folha de pagamento de um.'},
+
+/* ============================= FECHAMENTO ============================= */
+{tipo:'secao', img:'09-ecossistema.png', num:'07', titulo:'O conjunto',
+ sub:'Cada peça sozinha ajuda. Juntas, elas mudam o patamar da marca.'},
+
+{tipo:'lista', bloco:'Fechamento', kicker:'Resumo',
+ titulo:'O que ela não tem hoje e passa a ter',
+ cols:2,
+ itens:[
+  ['Vitrine própria','sem censura e sem depender de plataforma'],
+  ['Atendimento em segundos','com informação completa e padronizada'],
+  ['Histórico da empresa','não do celular da atendente'],
+  ['Visão do dinheiro em aberto','quanto está parado em interessadas'],
+  ['Base trabalhada','em vez de adormecida'],
+  ['Presença constante','em três redes sociais'],
+  ['Banco de imagens próprio','e crescente'],
+  ['Anúncios rastreáveis','cliente, não curtida'],
+  ['Automação de bastidor','sem robotizar o relacionamento'],
+  ['Equipe técnica ao lado','presencialmente, todo mês']],
+ nota:'Na prática: <strong>mais venda</strong> (menos gente perdida entre “quanto custa?” e “vou pensar”), <strong>melhor atendimento</strong>, <strong>menos retrabalho</strong>, <strong>mais previsibilidade</strong> — e mais tempo seu: o que você faz hoje à noite, alguém faz por você durante o dia.'},
+
+{tipo:'pacotes', bloco:'Fechamento', kicker:'Investimento', titulo:'Pacotes',
+ sub:'A entrada é a mesma nos quatro: {{pacoteEntrada}}, referente ao site. O que muda de um pacote para o outro é só a mensalidade.',
+ cards:[
+  {fx:'', nome:'Essencial', linha:'Presença',
+   itens:['Site completo','Manutenção do site','Social Media nas 3 redes'],
+   entrada:'{{pacoteEntrada}}', mensal:'{{pacote1Mensal}}'},
+  {fx:'', nome:'Operação', linha:'Presença + CRM',
+   itens:['Tudo do Essencial','KoruVision CRM — plano Growth','Implantação e configuração inclusas','Treinamento presencial da equipe'],
+   entrada:'{{pacoteEntrada}}', mensal:'{{pacote2Mensal}}'},
+  {fx:'Mais escolhido', nome:'Crescimento', linha:'Operação + Imagem', dest:true,
+   itens:['Tudo do Operação','Audiovisual: 1 captação por mês','KoruVision CRM — plano Pro','Campanhas de reativação da base'],
+   entrada:'{{pacoteEntrada}}', mensal:'{{pacote3Mensal}}'},
+  {fx:'Ecossistema', nome:'Completo', linha:'Operação total',
+   itens:['Tudo do Crescimento','Tráfego pago: Meta Ads + Google Ads','Reunião mensal de estratégia','Prioridade em demandas'],
+   entrada:'{{pacoteEntrada}}', mensal:'{{pacote4Mensal}}'}],
+ nota:'<strong>Não há taxa de implantação em nenhum pacote</strong> — configuração do CRM, montagem do funil, automações e treinamento da equipe entram inclusos. Contrato mínimo de <strong>{{pacoteContrato}} meses</strong>, com até <strong>{{pacoteDesconto}}%</strong> de economia sobre a soma dos serviços avulsos. A entrada do site é 50% na assinatura e 50% na entrega.'},
+
+{tipo:'timeline', bloco:'Fechamento', kicker:'Se preferir começar menor',
+ titulo:'Não precisa comprar tudo hoje. Precisa começar na ordem certa.',
+ fases:[
+  ['Mês 1','Base','Site completo e ensaio audiovisual de rebranding. A marca nova ganha casa e imagem própria.'],
+  ['Mês 2','Presença','Social Media nas três redes, com calendário aprovado com antecedência.'],
+  ['Mês 3','Operação','KoruVision CRM implantado e equipe treinada presencialmente.'],
+  ['Mês 4+','Escala','Tráfego pago com site, CRM e criativos já rodando — cada real investido é medido.']]},
+
+{tipo:'contato', img:'10-fechamento.png', bloco:'Fechamento',
+ kicker:'Próximos passos', titulo:'Como começamos',
+ passos:[
+  'Você escolhe o pacote ou as fases',
+  'Assinamos contrato e você recebe o link de pagamento da entrada',
+  'Reunião de briefing de 60 minutos — conteúdo, acessos e referências',
+  'Agendamos a primeira captação audiovisual',
+  'Em {{primeiraEntrega}} dias você tem a primeira entrega no ar'],
+ validade:'Proposta válida por {{validade}} dias'}
+];
+
+const OBJECOES = [
+ ['“Meu sistema já faz site.”','Faz. Mas é um site que você não consegue mexer, com layout de template, sem página por procedimento e sem otimização para Google. E, principalmente: ele morre no dia em que você trocar de sistema. <b>O seu site é ativo da ' + CLIENTE + ', não do fornecedor.</b>'],
+ ['“Meu sistema já é completo.”','É — para operar. Agenda, comanda e caixa ele resolve. O que ele não faz é juntar Direct, WhatsApp e Facebook numa tela, mostrar onde você perde cliente no meio do caminho, reativar base adormecida e medir de onde vem cada agendamento. <b>É por isso que os dois convivem.</b>'],
+ ['“Não quero robô falando com cliente.”','Nem nós queremos. A automação que propomos é da porta para dentro: confirmação, alerta interno, relatório, cobrança, aviso de cliente sumida. Sua cliente continua falando com gente. <b>Se um dia você quiser IA, ela sugere e sua atendente aprova — nunca envia sozinha.</b>'],
+ ['“Está caro.”','Compare com uma contratação: uma social media CLT, um fotógrafo, um gestor de tráfego e um TI dariam facilmente 3x este valor, mais encargos. E compare com o que se perde: <b>se o funil recuperar 4 clientes por mês que hoje somem, a estrutura já se pagou.</b>'],
+ ['“Vou pensar.”','Claro. Só sugiro decidir a <b>ordem</b>, não o todo: comece pelo site e pelo ensaio de rebranding, que é o que a marca nova precisa agora. O resto entra quando fizer sentido para você.'],
+ ['“Já tenho quem faz meu Instagram.”','Ótimo — a gente não precisa entrar em tudo. Mas repare: sem audiovisual próprio e sem CRM, o post continua morrendo no like. <b>Podemos começar pelo que falta e conversar sobre o resto depois.</b>']
+];
+
+/* ============================ RENDERIZACAO ============================ */
+
+function rodape(s, i, total){
+  return '<div class="rod"><span class="bloco">' + (s.bloco || AGENCIA) + '</span>' +
+         '<span>' + AGENCIA + ' &nbsp;·&nbsp; ' + CLIENTE + '</span>' +
+         '<span>' + String(i + 1).padStart(2, '0') + ' / ' + String(total).padStart(2, '0') + '</span></div>';
+}
+function cabeca(s){
+  let h = '';
+  if (s.kicker) h += '<div class="kicker">' + s.kicker + '</div>';
+  if (s.titulo) h += '<h2>' + tx(s.titulo) + '</h2>';
+  if (s.sub) h += '<p class="sub">' + tx(s.sub) + '</p>';
+  else if (s.titulo) h += '<div class="rule"></div>';
+  return h;
+}
+function pad(inner, cls){
+  return '<div class="pad' + (cls ? ' ' + cls : '') + '"><div class="fit">' + inner + '</div></div>';
+}
+function listaItens(itens, cols){
+  const cls = 'itens' + (itens.length > 6 ? ' compact' : '') + (cols === 2 ? ' cols2' : '');
+  return '<ul class="' + cls + '">' + itens.map(it => {
+    const t = Array.isArray(it) ? it[0] : it;
+    const d = Array.isArray(it) ? it[1] : '';
+    return '<li><span class="dot"></span><span class="txt"><b>' + tx(t) + '</b>' + (d ? ' — ' + tx(d) : '') + '</span></li>';
+  }).join('') + '</ul>';
+}
+
+function render(s, i, total){
+  const fundo = '<div class="glow tl"></div><div class="glow br"></div><div class="grain"></div>';
+  let corpo = '';
+
+  switch (s.tipo) {
+
+  case 'capa':
+    corpo = '<div class="capa">' +
+      '<div class="bg" style="background-image:url(' + IMG(s.img) + ')"></div><div class="veil"></div>' + fundo +
+      '<div class="in"><div class="marca">' + s.marca + '</div>' +
+      '<h1>' + tx(s.titulo) + '</h1><p class="sub" style="font-size:21px;color:var(--nude);opacity:.8;margin:0">' + tx(s.sub) + '</p>' +
+      '<div class="meta">' + s.meta.map(m => '<div><b>' + m[0] + '</b>' + tx(m[1]) + '</div>').join('') + '</div></div></div>';
+    break;
+
+  case 'secao':
+    corpo = '<div class="secao">' +
+      '<div class="bg" style="background-image:url(' + IMG(s.img) + ')"></div><div class="veil"></div>' + fundo +
+      '<div class="in"><div class="num">' + s.num + '</div><h1>' + tx(s.titulo) + '</h1>' +
+      '<p class="sub">' + tx(s.sub) + '</p></div></div>' + rodape(s, i, total);
+    break;
+
+  case 'declaracao': {
+    let h = '';
+    if (s.kicker) h += '<div class="kicker">' + s.kicker + '</div>';
+    h += '<div class="frase">' + s.frase.map(f => '<p>' + tx(f) + '</p>').join('') + '</div>';
+    if (s.lista) h += '<ul>' + s.lista.map(l => '<li>' + tx(l) + '</li>').join('') + '</ul>';
+    if (s.nota) h += '<div class="nota">' + tx(s.nota) + '</div>';
+    if (s.fecho) h += '<div style="margin-top:26px;font-family:var(--serif);font-size:32px;color:var(--gold-soft);line-height:1.3">' + tx(s.fecho) + '</div>';
+    const foto = s.img
+      ? '<div class="bgfoto" style="background-image:url(' + IMG(s.img) + ')"></div><div class="bgveil"></div>'
+      : '';
+    corpo = foto + fundo + pad(h, 'decl' + (s.img ? ' comfoto' : '')) + rodape(s, i, total);
+    break;
+  }
+
+  case 'lista': {
+    let h = cabeca(s) + listaItens(s.itens, s.cols);
+    if (s.nota) h += '<div style="margin-top:20px;padding-left:22px;border-left:2px solid var(--gold);font-size:17px;line-height:1.55;color:var(--nude);font-weight:300">' + tx(s.nota) + '</div>';
+    corpo = fundo + pad(h) + rodape(s, i, total);
+    break;
+  }
+
+  case 'duo': {
+    const col = c => '<div class="painel ' + c.tom + '"><h4>' + tx(c.titulo) + '</h4><ul>' +
+      c.itens.map(x => '<li>' + tx(x) + '</li>').join('') + '</ul></div>';
+    let h = cabeca(s) + '<div class="duo">' + col(s.colA) + col(s.colB) + '</div>';
+    if (s.nota) h += '<div style="margin-top:22px;padding-left:22px;border-left:2px solid var(--gold);font-size:18px;color:var(--nude);font-weight:300">' + tx(s.nota) + '</div>';
+    corpo = fundo + pad(h) + rodape(s, i, total);
+    break;
+  }
+
+  case 'cenario': {
+    const box = (b, hi) => '<div class="box' + (hi ? ' hi' : '') + '"><div class="tag">' + b.tag + '</div>' +
+      '<div class="fala">' + tx(b.fala) + '</div><ul>' + b.itens.map(x => '<li>' + tx(x) + '</li>').join('') + '</ul>' +
+      '<div class="selo">' + tx(b.selo) + '</div></div>';
+    corpo = fundo + pad(cabeca(s) + '<div class="cen">' + box(s.antes, false) + box(s.depois, true) + '</div>') +
+      rodape(s, i, total);
+    break;
+  }
+
+  case 'comparativo': {
+    const linhas = s.linhas.map(l => '<tr><td>' + tx(l[0]) + '</td><td class="b">' + tx(l[1]) + '</td></tr>').join('');
+    corpo = fundo + pad(cabeca(s) +
+      '<table class="tab"><thead><tr><th>' + s.cabA + '</th><th class="b">' + s.cabB + '</th></tr></thead>' +
+      '<tbody>' + linhas + '</tbody></table>') + rodape(s, i, total);
+    break;
+  }
+
+  case 'ciclo': {
+    const et = s.passos.map((x, k) => '<div class="et"><div class="n">' + (k + 1) + '</div>' +
+      '<div class="t">' + tx(x[0]) + '</div><div class="d">' + tx(x[1]) + '</div></div>').join('<div class="seta">&#8594;</div>');
+    let h = cabeca(s) + '<div class="ciclo">' + et + '</div>';
+    if (s.nota) h += '<div style="margin-top:10px;padding-left:22px;border-left:2px solid var(--gold);font-size:18px;color:var(--nude);font-weight:300">' + tx(s.nota) + '</div>';
+    corpo = fundo + pad(h) + rodape(s, i, total);
+    break;
+  }
+
+  case 'pacotes': {
+    const cards = s.cards.map(c => '<div class="pac' + (c.dest ? ' dest' : '') + '">' +
+      '<div class="fx">' + (c.fx || '') + '</div><h4>' + c.nome + '</h4><div class="lin">' + c.linha + '</div>' +
+      '<ul>' + c.itens.map(x => '<li>' + tx(x) + '</li>').join('') + '</ul>' +
+      '<div class="val"><div class="g"><div class="l">Entrada</div><div class="v">' + tx(c.entrada) + '</div></div>' +
+      '<div class="g"><div class="l">Mensal</div><div class="v">' + tx(c.mensal) + '</div></div></div></div>').join('');
+    let h = cabeca(s) + '<div class="pacs">' + cards + '</div>';
+    if (s.nota) h += '<div style="margin-top:18px;font-size:15.5px;line-height:1.5;color:var(--muted);font-weight:300">' + tx(s.nota) + '</div>';
+    corpo = fundo + pad(h) + rodape(s, i, total);
+    break;
+  }
+
+  case 'timeline': {
+    const f = s.fases.map(x => '<div class="f"><div class="b"></div><div class="m">' + x[0] + '</div>' +
+      '<div class="t">' + x[1] + '</div><div class="d">' + tx(x[2]) + '</div></div>').join('');
+    corpo = fundo + pad(cabeca(s) + '<div class="tl">' + f + '</div>') + rodape(s, i, total);
+    break;
+  }
+
+  case 'preco': {
+    const linhas = s.linhas.map(l => '<div class="l' + (l.hi ? ' hi' : '') + '">' +
+      '<div class="esq"><div class="nome">' + tx(l.nome) + '</div><div class="desc">' + tx(l.desc) + '</div></div>' +
+      '<div class="dir"><div class="v">' + tx(l.valor) + '</div><div class="cond">' + l.cond + '</div></div></div>').join('');
+    corpo = fundo + pad(cabeca(s) + '<div class="prec"><div class="linhas">' + linhas + '</div>' +
+      (s.obs ? '<div class="obs">' + tx(s.obs) + '</div>' : '') + '</div>') + rodape(s, i, total);
+    break;
+  }
+
+  case 'contato':
+    corpo = '<div class="fim"><div class="bg" style="background-image:url(' + IMG(s.img) + ')"></div><div class="veil"></div>' + fundo +
+      '<div class="in"><div class="kicker" style="justify-content:flex-end">' + s.kicker + '</div>' +
+      '<h2 style="font-size:52px">' + tx(s.titulo) + '</h2>' +
+      '<ol class="passos">' + s.passos.map((x, k) => '<li><span class="n">' + (k + 1) + '</span><span>' + tx(x) + '</span></li>').join('') + '</ol>' +
+      '<div style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">' + tx(s.validade) + '</div>' +
+      '</div></div>';
+    break;
+  }
+
+  return '<section class="slide" data-i="' + i + '">' + corpo + '<div class="barra" style="width:' +
+    ((i + 1) / total * 100) + '%"></div></section>';
+}
+
+/* ============================== MOTOR ============================== */
+const deck = document.getElementById('deck');
+const total = SLIDES.length;
+deck.innerHTML = SLIDES.map((s, i) => render(s, i, total)).join('');
+const slides = Array.from(deck.querySelectorAll('.slide'));
+let atual = 0;
+
+function ir(n){
+  atual = Math.max(0, Math.min(total - 1, n));
+  slides.forEach((el, i) => el.classList.toggle('on', i === atual));
+  document.getElementById('bConta').textContent = (atual + 1) + ' / ' + total;
+  location.hash = atual + 1;
+  // no celular cada slide rola: o novo slide sempre comeca do topo
+  slides[atual].querySelectorAll('.pad, .in').forEach(el => el.scrollTop = 0);
+}
+const prox = () => ir(atual + 1);
+const ant  = () => ir(atual - 1);
+
+/* No celular o deck ocupa a tela inteira e cada slide rola; o palco fixo de
+   1280x720 e a reducao automatica de texto valem so a partir de 861px. */
+const telaPequena = () => window.matchMedia('(max-width:860px)').matches;
+
+function escala(){
+  if (telaPequena()) { deck.style.transform = ''; return; }
+  const m = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+  deck.style.transform = 'scale(' + m + ')';
+}
+window.addEventListener('resize', () => { escala(); ajustar(); });
+window.addEventListener('orientationchange', () => setTimeout(() => { escala(); ajustar(); }, 250));
+
+/* impede que qualquer slide com muito texto transborde os 720px */
+function ajustar(){
+  slides.forEach(el => {
+    const fit = el.querySelector('.fit');
+    if (!fit) return;
+    if (telaPequena()) { fit.style.transform = ''; fit.style.width = ''; return; }
+    const oculto = !el.classList.contains('on');
+    if (oculto) { el.style.visibility = 'hidden'; el.style.display = 'block'; }
+    fit.style.transform = ''; fit.style.width = '';
+    for (let n = 0; n < 2; n++) {
+      const disp = fit.clientHeight, real = fit.scrollHeight;
+      if (real <= disp + 1) break;
+      const k = Math.max(.55, (disp / real) * 0.99);
+      fit.style.transform = 'scale(' + k + ')';
+      fit.style.width = (100 / k) + '%';
+    }
+    if (oculto) { el.style.visibility = ''; el.style.display = ''; }
+  });
+}
+
+document.addEventListener('keydown', e => {
+  const menuAberto = document.getElementById('menu').classList.contains('on');
+  const objAberto = document.getElementById('obj').classList.contains('on');
+  switch (e.key) {
+    case 'ArrowRight': case 'PageDown': case ' ': e.preventDefault(); prox(); break;
+    case 'ArrowLeft': case 'PageUp': ant(); break;
+    case 'Home': ir(0); break;
+    case 'End': ir(total - 1); break;
+    case 'f': case 'F': tela(); break;
+    case 'g': case 'G': painel('menu'); break;
+    case 'o': case 'O': if (APRESENTADOR) painel('obj'); break;
+    case 'Escape': if (menuAberto) painel('menu'); if (objAberto) painel('obj'); break;
+  }
+});
+
+function tela(){
+  if (!document.fullscreenElement) document.documentElement.requestFullscreen().catch(() => {});
+  else document.exitFullscreen();
+}
+function painel(id){
+  const outro = id === 'menu' ? 'obj' : 'menu';
+  document.getElementById(outro).classList.remove('on');
+  document.getElementById(id).classList.toggle('on');
+}
+
+document.getElementById('bNext').onclick = prox;
+document.getElementById('bPrev').onclick = ant;
+document.getElementById('bFull').onclick = tela;
+document.getElementById('bMenu').onclick = () => painel('menu');
+document.getElementById('bObj').onclick = () => painel('obj');
+if (!APRESENTADOR) document.getElementById('bObj').remove();
+
+/* zonas de clique */
+const zonas = document.createElement('div');
+zonas.className = 'zonas';
+zonas.innerHTML = '<i class="l"></i><i class="r"></i>';
+document.querySelector('.stage').appendChild(zonas);
+zonas.querySelector('.l').onclick = ant;
+zonas.querySelector('.r').onclick = prox;
+
+/* swipe — so troca de slide quando o gesto e claramente horizontal,
+   para nao atrapalhar a rolagem vertical do conteudo no celular */
+let x0 = null, y0 = null;
+addEventListener('touchstart', e => {
+  x0 = e.touches[0].clientX;
+  y0 = e.touches[0].clientY;
+}, {passive:true});
+addEventListener('touchend', e => {
+  if (x0 === null) return;
+  const dx = e.changedTouches[0].clientX - x0;
+  const dy = e.changedTouches[0].clientY - y0;
+  if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.6) (dx < 0 ? prox : ant)();
+  x0 = y0 = null;
+}, {passive:true});
+
+/* indice */
+document.getElementById('menuGrade').innerHTML = SLIDES.map((s, i) => {
+  const t = s.titulo || s.marca || (s.frase ? s.frase[0].replace(/<[^>]+>/g, '') : 'Slide');
+  return '<div class="it" data-go="' + i + '"><div class="n">' + String(i + 1).padStart(2, '0') +
+    ' · ' + (s.bloco || 'Capa') + '</div><div class="t">' + t + '</div></div>';
+}).join('');
+document.getElementById('menuGrade').onclick = e => {
+  const it = e.target.closest('.it');
+  if (!it) return;
+  ir(+it.dataset.go);
+  painel('menu');
+};
+document.getElementById('menu').onclick = e => { if (e.target.id === 'menu') painel('menu'); };
+
+/* objecoes */
+if (APRESENTADOR) {
+  document.getElementById('obj').innerHTML =
+    '<div class="cab"><h3>Respostas para as objeções</h3><span>Painel interno · tecla O para fechar</span></div>' +
+    '<div class="grade">' + OBJECOES.map(o =>
+      '<div class="c"><div class="q">' + o[0] + '</div><div class="a">' + o[1] + '</div></div>').join('') + '</div>';
+  document.getElementById('obj').onclick = e => { if (e.target.id === 'obj') painel('obj'); };
+}
+
+/* link direto para um slide e botao voltar do navegador */
+addEventListener('hashchange', () => {
+  const n = (parseInt(location.hash.slice(1), 10) || 1) - 1;
+  if (n !== atual) ir(n);
+});
+
+escala();
+ir(location.hash ? (parseInt(location.hash.slice(1), 10) || 1) - 1 : 0);
+ajustar();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(ajustar);
+window.addEventListener('load', ajustar);
+window.addEventListener('beforeprint', ajustar);
+</script>
+</body>
+</html>
